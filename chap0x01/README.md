@@ -36,6 +36,7 @@
 管理 -> 虚拟介质管理 -> 注册 -> 选择需要的vdi文件
 
 下面是修改后的效果：
+
 ![](./img/multi_result.png)
 
 ---
@@ -45,7 +46,9 @@
 ##### `攻击者主机`配置
 
 **网卡情况**
+
 ![](./img/attacker-network.png)
+
 ![](./img/attacker-network1.png)
 
 |网卡名称|VB中的网络类型|IP地址|
@@ -56,6 +59,7 @@
 
 
 - 攻击者主机无法直接访问靶机
+
 ![](./img/attack-victim-xp-1.png)
 ![](./img/attack-victim-debian-2.png)
 ![](./img/attack-victim-xp-2.png)
@@ -69,14 +73,20 @@
 |enp0s8|Host-Only|192.168.43.4|
 |enp0s9|内部网络1(intnet1)|172.16.111.1|
 |enp0s10|内部网络2(intnet2)|172.16.222.1|
+
+
 根据网络拓扑，网关连接了三个网络：**Network-1，Network-2，NatNetwork**，所以Gateway至少需要三块网卡。
+
 但是为了操作方便，需要一块网卡连接主机，使用ssh服务
+
 参考 [Introduction to Networking Modes](https://www.virtualbox.org/manual/ch06.html)
 
 - 网关连接互联网
+
   ![](./img/gateway-Internet.png)
 
 - 网关连接攻击者主机
+  
   ![](./img/gateway-attacker.png)
 
 
@@ -89,20 +99,25 @@
 |Ethernet Adapter 本地连接2|intnet1|172.16.111.113|
 
 - Victim-XP-1 与网关的连通性
+  
   ![](./img/victim-xp-1-Gateway.png)
 
 - 网关与 Victim-XP-1 的连通性  
+  
   ![](./img/gateway-victim-xp-1.png)
 
 - Victim-XP-1 与网络的连通性
+  
   ![](./img/victim-xp-1-Internet.png)
   
   网关DNS日志记录
+  
   ![](./img/victim-xp-1-Internet-log.png)
 
   此处可证明靶机`Victim-XP-1`对外上下行流量经过网关。同时，将网关关闭后无法连接互联网也可证明。
 
 - 靶机`Victim-XP-1`可以直接访问攻击者主机  
+
 ![](./img/victim-xp-1-attacker.png)
 
 **Victim-Kali-1**
@@ -127,11 +142,13 @@
 ![](./img/victim-debian-2-Internet.png)
 
   网关DNS日志记录
+  
   ![](./img/victim-debian-2-Internet-log.png)
 
   此处可证明靶机`Victim-Debian-2`对外上下行流量经过网关。同时，将网关关闭后无法连接互联网也可证明。
 
 - 靶机`Victim-Debian-2`可以直接访问攻击者主机  
+
 ![](./img/victim-debian-2-attacker.png)
 
 
@@ -144,20 +161,27 @@
 
 
 - Victim-XP-2 与网关的连通性
+  
   ![](./img/victim-xp-2-Gateway.png)
 
 - 网关与 Victim-XP-2 的连通性  
+  
   ![](./img/gateway-victim-xp-2.png)
 
 - Victim-XP-2 与网络的连通性
+  
   ![](./img/victim-xp-2-Internet.png)
   
 - 网关DNS日志记录
+  
   ![](./img/victim-xp-2-Internet-log.png)
 
   此处可证明靶机`Victim-XP-2`对外上下行流量经过网关。同时，将网关关闭后无法连接互联网也可证明。
+  
   ![](./img/fail-resolution.png)
+
 - 靶机`Victim-xp-2`可以直接访问攻击者主机  
+
 ![](./img/victim-xp-2-attacker.png)
 
 ---
@@ -165,6 +189,7 @@
 ### 实验要求
 
 - 搭建满足如下拓扑图所示的虚拟机网络拓扑；
+
 ![](./img/relation.png)
 
 **完成以下网络连通性测试**；
